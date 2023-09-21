@@ -1,0 +1,12 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        paran = {')':'(','}':'{',']':'['}
+        stack1 = []
+        
+        for char in s:
+            if char in paran.values():
+                stack1.append(char)
+            elif char in paran.keys():
+                if stack1 == [] or paran[char] != stack1.pop():
+                    return False
+        return stack1 == []
