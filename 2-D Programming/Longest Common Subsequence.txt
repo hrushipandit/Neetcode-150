@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 class Solution(object):
     def longestCommonSubsequence(self, text1, text2):
         dp = [[0 for j in range(len(text2) + 1)] for i in range(len(text1) + 1)]
@@ -9,4 +10,17 @@ class Solution(object):
                     dp[i][j] = 1 + dp[i + 1][j + 1]
                 else:
                     dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
+=======
+class Solution(object):
+    def longestCommonSubsequence(self, text1, text2):
+        dp = [[0 for j in range(len(text2) + 1)] for i in range(len(text1) + 1)]
+
+        # Loop over text1 and text2 in reverse using proper syntax for range
+        for i in range(len(text1) - 1, -1, -1):
+            for j in range(len(text2) - 1, -1, -1):
+                if text1[i] == text2[j]:
+                    dp[i][j] = 1 + dp[i + 1][j + 1]
+                else:
+                    dp[i][j] = max(dp[i][j + 1], dp[i + 1][j])
+>>>>>>> 25b6fac2cd48c6b00aa0f19ebd420fe7aa143ada
         return dp[0][0]
